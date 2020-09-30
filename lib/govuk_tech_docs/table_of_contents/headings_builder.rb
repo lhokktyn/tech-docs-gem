@@ -12,7 +12,7 @@ module GovukTechDocs
             element_name: element.node_name,
             text: element.content,
             attributes: convert_nokogiri_attr_objects_to_hashes(element.attributes),
-            page_url: @url
+            page_url: @url,
           )
         end
       end
@@ -20,11 +20,11 @@ module GovukTechDocs
     private
 
       def page
-        @_page ||= Nokogiri::HTML(@html)
+        @page ||= Nokogiri::HTML(@html)
       end
 
       def heading_elements
-        page.search('h1, h2, h3, h4, h5, h6')
+        page.search("h1, h2, h3, h4, h5, h6")
       end
 
       def convert_nokogiri_attr_objects_to_hashes(attributes)

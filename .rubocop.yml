@@ -1,11 +1,12 @@
-Layout/IndentHeredoc:
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+
+Layout/HeredocIndentation:
   Enabled: false
 
 Naming/HeredocDelimiterNaming:
   Enabled: false
 
 Lint/NestedMethodDefinition:
-  Enabled: false
-
-Performance/HashEachMethods:
   Enabled: false

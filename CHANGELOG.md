@@ -1,5 +1,120 @@
 # Changelog
 
+## Unreleased
+
+## 2.1.0
+
+### New features
+
+#### Exclude pages from search engine results
+
+You can now exclude a page from search engine results by including `prevent_indexing: true` in the page's frontmatter.
+
+This was added in [pull request #192: Fixes and improvements to meta tags](https://github.com/alphagov/tech-docs-gem/pull/192).
+
+### Fixes
+
+We’ve made fixes in the following pull requests:
+
+- [#192: Fixes and improvements to meta tags](https://github.com/alphagov/tech-docs-gem/pull/192)
+
+## 2.0.13
+
+- [Pull request #189: Update orange code highlight colour to meet minimum AA colour contrast ratio criterion](https://github.com/alphagov/tech-docs-gem/pull/189)
+
+## 2.0.12
+
+- [Pull request #179: Use current markup for header and footer](https://github.com/alphagov/tech-docs-gem/pull/179)
+- [Pull request #178: Update dependencies and fix tests](https://github.com/alphagov/tech-docs-gem/pull/178) – includes updating GOV.UK Frontend to v3.6.0.
+- [Pull request #176: Use correct separator for page titles](https://github.com/alphagov/tech-docs-gem/pull/176)
+
+## 2.0.11
+
+### Fixes
+
+- [Pull request #162: Fix line height spacing for multiline code elements](https://github.com/alphagov/tech-docs-gem/pull/162)
+- [Pull request #165: Update header alignment to match layout](https://github.com/alphagov/tech-docs-gem/pull/165)
+
+## 2.0.10
+
+### Fixes
+
+- [Pull request #160: Make sure IDs on collapsible navigation are unique](https://github.com/alphagov/tech-docs-gem/pull/160)
+
+## 2.0.9
+
+### Fixes
+
+- [Pull request #154: Fix table columns breaking content](https://github.com/alphagov/tech-docs-gem/pull/154).
+- [Pull request #155: Ensure the page can be pinch to zoomed](https://github.com/alphagov/tech-docs-gem/pull/155).
+
+## 2.0.8
+
+Use of  `govuk-lint` replaced with `rubocop-govuk` due to the former [becoming deprecated](https://github.com/alphagov/govuk-lint/pull/133).
+
+## 2.0.7
+
+A small release to fix an issue where code blocks font size was too large on some browsers.
+
+See [pull request #131: Improve code font sizing ](https://github.com/alphagov/tech-docs-gem/pull/131) for details.
+
+
+## 2.0.6
+
+This release contains accessibility fixes:
+
+- anchor header links are now properly hidden to assistive technologies
+- side navigation items now have consistent visible focus when tabbing between them
+- side navigation items have unique Ids
+- code elements now scale properly when you enlarge your text
+- links with code elements now look correct
+- contribution links are now within a landmark
+
+You can look at the [2.0.6 milestone](https://github.com/alphagov/tech-docs-gem/milestone/2?closed=1) for the closed issues, and [pull request #129: Accessibility improvements](https://github.com/alphagov/tech-docs-gem/pull/129) for details on how these issues were fixed.
+
+## 2.0.5
+
+
+Adds [new global configuration option](https://github.com/alphagov/tech-docs-gem/pull/122) that controls whether review banners appear or not at the bottom of pages when expiry dates are set in the frontmatter.
+
+[Fixes the hard-coded service link](https://github.com/alphagov/tech-docs-gem/pull/119) in the header.
+
+Selectively include only the CSS for the GOV.UK Frontend components that we are using, to reduce the size of the CSS file served to the user ([#118](https://github.com/alphagov/tech-docs-gem/issues/118))
+
+Fix service name to link to the configured `service_link`, rather than being hardcoded to `/` ([#119](https://github.com/alphagov/tech-docs-gem/issues/119))
+
+Add the `show_review_banner` global configuration option allowing users to hide the page review banner.
+
+## 2.0.4
+
+Adds `footer_links` option for displaying links in the footer and ability to hide pages from left hand navigation.
+
+## 2.0.3
+
+Fixes a couple of styling issues: [#100](https://github.com/alphagov/tech-docs-gem/issues/100) and [#106](https://github.com/alphagov/tech-docs-gem/issues/106).
+
+## 2.0.2
+
+This fixes ensures all assets from govuk-frontend are bundled; we were missing some PNG, SVG and ICO files.
+
+## 2.0.1
+
+This fixes an issue where Travis CI wasn’t packaging up the gem with the govuk-frontend module.
+Without this the tech-docs have no css styles.
+
+## 2.0.0
+
+This release adds [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend) (part of the [GOV.UK Design System](https://design-system.service.gov.uk)) and remove the legacy framework [GOV.UK Frontend Toolkit](https://github.com/alphagov/govuk_frontend_toolkit). This required a lot of markup being ported over
+to use the design system’s markup and all custom CSS to use new variables and mixins.
+
+Custom components such as the table of contents (toc) were updated to use the WCAG 2.1 AA compliant focus states too.
+
+It was also necessary to upgrade the Ruby version to `2.6.3` so that we could bump the gem versions of `govuk_lint`, `rubocop` and `sprockets`. The new version of sprockets allowed us to pull through assets from `node_modules/govuk-frontend` without having to manually include them as was the case before with govuk_frontend_toolkit.
+
+## 1.8.3
+
+Fixes bug where search results disappear when opening results in a new tab, making it difficult to open several results in a batch (PR #86).
+
 ## 1.8.2
 
 Adds a `show_expiry` config option to allow you to choose whether to show the review due date and expired banner from your pages. Find out more about the [page expiry and review feature][expiry].

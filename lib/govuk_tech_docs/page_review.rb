@@ -12,7 +12,7 @@ module GovukTechDocs
 
       @review_by ||= Chronic.parse(
         "in #{page.data.review_in}",
-        now: last_reviewed_on.to_time
+        now: last_reviewed_on.to_time,
       ).to_date
     end
 
@@ -30,13 +30,18 @@ module GovukTechDocs
 
     def owner_slack_url
       return "" unless owner_slack_workspace
+
       # Slack URLs don't have the # (channels) or @ (usernames)
-      slack_identifier = owner_slack.to_s.delete('#').delete('@')
+      slack_identifier = owner_slack.to_s.delete("#").delete("@")
       "https://#{owner_slack_workspace}.slack.com/messages/#{slack_identifier}"
     end
 
     def show_expiry?
       @config[:tech_docs].fetch(:show_expiry, true)
+    end
+
+    def show_review_banner?
+      @config[:tech_docs].fetch(:show_review_banner, true)
     end
 
   private
